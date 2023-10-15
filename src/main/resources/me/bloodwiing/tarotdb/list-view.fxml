@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="203.0" prefWidth="730.0" spacing="16.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.ListController">
+    <padding>
+        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+    </padding>
+   <HBox alignment="BASELINE_LEFT" spacing="8.0">
+      <children>
+      
+          <Label text="Tarot DB">
+            <font>
+               <Font name="System Bold Italic" size="24.0" />
+            </font>
+         </Label>
+         <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="by BLOODWIING" HBox.hgrow="ALWAYS" />
+         <Label layoutX="119.0" layoutY="23.0" text="v1.0" />
+      </children>
+   </HBox>
+   <HBox alignment="CENTER_RIGHT" spacing="16.0" VBox.vgrow="ALWAYS">
+      <children>
+         <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" spacing="8.0" HBox.hgrow="ALWAYS">
+            <children>
+               <FlowPane alignment="CENTER" hgap="8.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWrapLength="1.0" vgap="8.0">
+                  <children>
+                     <HBox alignment="CENTER" spacing="8.0">
+                        <children>
+                           <Label text="Arcana">
+                              <font>
+                                 <Font name="System Italic" size="12.0" />
+                              </font>
+                           </Label>
+                           <ChoiceBox fx:id="selArcana" />
+                        </children>
+                     </HBox>
+                     <HBox alignment="CENTER" layoutX="176.0" layoutY="10.0" spacing="8.0">
+                        <children>
+                           <Label text="Suit">
+                              <font>
+                                 <Font name="System Italic" size="12.0" />
+                              </font>
+                           </Label>
+                           <ChoiceBox fx:id="selSuit" />
+                        </children>
+                     </HBox>
+                     <HBox alignment="CENTER" layoutX="236.0" layoutY="10.0" spacing="8.0">
+                        <children>
+                           <Label text="Number">
+                              <font>
+                                 <Font name="System Italic" size="12.0" />
+                              </font>
+                           </Label>
+                           <ChoiceBox fx:id="selNumber" />
+                        </children>
+                     </HBox>
+                     <Separator orientation="VERTICAL" />
+                     <Button fx:id="btnResetFilter" mnemonicParsing="false" text="Reset" />
+                  </children>
+               </FlowPane>
+               <Separator />
+               <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefViewportHeight="1.0" VBox.vgrow="ALWAYS">
+                  <content>
+                     <FlowPane fx:id="flowCardList" hgap="8.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWrapLength="100.0" vgap="8.0" />
+                  </content>
+               </ScrollPane>
+            </children>
+         </VBox>
+         <ImageView fx:id="imgPreview" fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@rws/m13.jpg" />
+            </image>
+         </ImageView>
+      </children>
+   </HBox>
+</VBox>
