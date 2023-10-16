@@ -16,7 +16,7 @@ public class TarotDB extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(TarotDB.class.getResource("list-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         stage.setTitle("Tarot DB");
         stage.setScene(scene);
         stage.show();
