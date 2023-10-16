@@ -1,5 +1,13 @@
+@font-face {
+    src: url("axis.ttf");
+}
+
+* {
+    -accent: #7b4fcf;
+}
+
 .root {
-    -fx-background-color: #282a30;
+    -fx-background-color: #000;
 }
 
 .list {
@@ -8,16 +16,17 @@
 }
 
 .list .viewport {
-    -fx-background-color: #34373f;
+    -fx-background-color: #121215;
+    -fx-background-radius: 16px;
 }
 
 Label,
 RadioButton {
-    -fx-text-fill: #ccc;
+    -fx-text-fill: #fff;
 }
 
 .accent {
-    -fx-text-fill: #9b3aea;
+    -fx-text-fill: -accent;
 }
 
 .dark {
@@ -44,4 +53,8 @@ Button.gray {
 
 ChoiceBox {
     -fx-background-insets: 0;
+}
+
+.axis {
+    -fx-font-family: "AXIS Extra Bold";
 }

@@ -72,6 +72,10 @@ public abstract class Tarot {
     public abstract String getListHead();
     public abstract String getListLabel();
 
+    public String getDisplayName() {
+        return getName();
+    }
+
     public void buildInfo(InspectBuilder builder) {
         if (getNumerology() != null) {
             var numerology = builder.addParagraph("Numerology");

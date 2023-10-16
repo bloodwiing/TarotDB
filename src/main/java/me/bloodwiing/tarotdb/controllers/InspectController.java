@@ -48,7 +48,7 @@ public class InspectController implements Initializable, SettingUpdateListener {
             tarot = (Tarot) observableValue.getValue().getRoot().getUserData();
 
             imgImage.setImage(tarot.getImageResource());
-            labelName.setText(tarot.getName());
+            labelName.setText(tarot.getDisplayName());
 
             for (String fortune : tarot.getFortuneTellings()) {
                 vboxFortunes.getChildren().add(createWrappingLabel(fortune));

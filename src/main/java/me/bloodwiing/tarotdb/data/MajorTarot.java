@@ -8,15 +8,6 @@ import static me.bloodwiing.tarotdb.builders.InspectBuilder.createWrappingLabel;
 
 public class MajorTarot extends Tarot {
 
-    private static final String[] numerals = new String[] {
-            "0",
-            "I", "II", "III",
-            "IV",
-            "V", "VI", "VII", "VIII",
-            "IX",
-            "X",
-    };
-
     private final int number;
 
     private String archetype;
@@ -64,6 +55,11 @@ public class MajorTarot extends Tarot {
     @Override
     public String getListLabel() {
         return getName();
+    }
+
+    @Override
+    public String getDisplayName() {
+        return RomanNumeralConverter.intToRoman(getNumber()) + ". " + getName();
     }
 
     @Override

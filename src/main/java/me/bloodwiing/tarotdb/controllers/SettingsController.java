@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import me.bloodwiing.tarotdb.Program;
@@ -52,6 +53,7 @@ public class SettingsController implements Initializable {
 
             deckItems.add(deckItemController);
 
+            HBox.setHgrow(deckItem, Priority.ALWAYS);
             hboxDecks.getChildren().add(deckItem);
         }
 

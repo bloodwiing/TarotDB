@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -9,19 +11,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="870.0" prefWidth="730.0" spacing="16.0" stylesheets="@styling.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.InspectController">
+<VBox alignment="TOP_CENTER" prefHeight="870.0" prefWidth="730.0" spacing="16.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.InspectController">
    <padding>
       <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
    </padding>
    <children>
       <HBox alignment="BASELINE_LEFT" spacing="8.0">
          <children>
-            <Label text="Tarot DB">
+            <Label styleClass="axis" text="Tarot DB">
                <font>
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Label>
-            <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" styleClass="accent" text="by BLOODWIING" HBox.hgrow="ALWAYS" />
+            <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" styleClass="accent" text="by BLOODWIING" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <Label layoutX="119.0" layoutY="23.0" styleClass="faint" text="v1.0" />
          </children>
       </HBox>
@@ -34,20 +39,24 @@
                         <Image url="@rws/m13.jpg" />
                      </image>
                   </ImageView>
-                  <Label fx:id="labelName" text="XIII Death">
+                  <Label fx:id="labelName" styleClass="axis" text="XIII Death">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
                   <VBox spacing="4.0">
                      <children>
-                        <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" styleClass="accent" text="Fortune telling">
+                        <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="Fortune telling">
                            <font>
-                              <Font name="System Bold" size="11.0" />
+                              <Font name="System Bold" size="12.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="16.0" />
                            </VBox.margin>
+                           <styleClass>
+                              <String fx:value="axis" />
+                              <String fx:value="accent" />
+                           </styleClass>
                         </Label>
                         <VBox fx:id="vboxFortunes" spacing="8.0">
                            <VBox.margin>
@@ -63,13 +72,17 @@
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                      </padding>
                      <children>
-                        <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" styleClass="accent" text="Meanings">
+                        <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="Meanings">
                            <font>
-                              <Font name="System Bold" size="11.0" />
+                              <Font name="System Bold" size="12.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="16.0" />
                            </VBox.margin>
+                           <styleClass>
+                              <String fx:value="axis" />
+                              <String fx:value="accent" />
+                           </styleClass>
                         </Label>
                         <HBox>
                            <children>
@@ -78,13 +91,17 @@
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                                  <children>
-                                    <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" styleClass="dark" text="Light">
+                                    <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="Light">
                                        <font>
-                                          <Font name="System Bold" size="11.0" />
+                                          <Font name="System Bold" size="12.0" />
                                        </font>
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
+                                       <styleClass>
+                                          <String fx:value="axis" />
+                                          <String fx:value="faint" />
+                                       </styleClass>
                                     </Label>
                                     <VBox fx:id="vboxLight" spacing="8.0">
                                        <VBox.margin>
@@ -97,13 +114,17 @@
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                                  <children>
-                                    <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" styleClass="dark" text="Shadow">
+                                    <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="Shadow">
                                        <font>
-                                          <Font name="System Bold" size="11.0" />
+                                          <Font name="System Bold" size="12.0" />
                                        </font>
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
+                                       <styleClass>
+                                          <String fx:value="axis" />
+                                          <String fx:value="faint" />
+                                       </styleClass>
                                     </Label>
                                     <VBox fx:id="vboxShadow" spacing="8.0">
                                        <VBox.margin>
@@ -124,6 +145,13 @@
          <VBox.margin>
             <Insets />
          </VBox.margin>
+         <padding>
+            <Insets right="8.0" />
+         </padding>
       </ScrollPane>
    </children>
+   <stylesheets>
+      <URL value="@styling.css" />
+      <URL value="@scroll.css" />
+   </stylesheets>
 </VBox>
