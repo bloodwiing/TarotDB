@@ -66,13 +66,13 @@ public class MajorTarot extends Tarot {
     public void buildInfo(InspectBuilder builder) {
         super.buildInfo(builder);
 
-        var archetype = builder.addParagraph("Archetype");
+        var archetype = builder.addParagraph("🪆 Archetype");
         archetype.getListItems().add(createWrappingLabel(getArchetype()));
 
-        var hebrew = builder.addParagraph("Hebrew Alphabet");
+        var hebrew = builder.addParagraph("✡ Hebrew Alphabet");
         hebrew.getListItems().add(createWrappingLabel(getHebrew()));
 
-        var mythical = builder.addParagraph("Mythical/Spiritual");
+        var mythical = builder.addParagraph("🙏 Mythical/Spiritual");
         mythical.getListItems().add(createWrappingLabel(getMythical()));
     }
 }

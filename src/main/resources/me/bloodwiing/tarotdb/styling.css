@@ -20,6 +20,10 @@
     -fx-background-radius: 16px;
 }
 
+.border-radius {
+    -fx-background-radius: 16px;
+}
+
 Label,
 RadioButton {
     -fx-text-fill: #fff;

@@ -2,9 +2,16 @@ package me.bloodwiing.tarotdb.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Side;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.LinearGradient;
+import javafx.scene.paint.Stop;
 import me.bloodwiing.tarotdb.builders.InspectBuilder;
 import me.bloodwiing.tarotdb.data.Tarot;
 import me.bloodwiing.tarotdb.listeners.SettingUpdateListener;
@@ -37,9 +44,16 @@ public class InspectController implements Initializable, SettingUpdateListener {
     @FXML
     private VBox vboxShadow;
 
+    @FXML
+    private Pane paneBg;
+
+    @FXML
+    private Pane paneBgGradient;
+
     @Override
     public void settingUpdate() {
         imgImage.setImage(tarot.getImageResource());
+        remakeBackground();
     }
 
     @Override
@@ -63,7 +77,25 @@ public class InspectController implements Initializable, SettingUpdateListener {
             }
 
             tarot.buildInfo(new InspectBuilder(vboxContent));
+
+            remakeBackground();
         });
+    }
+
+    private void remakeBackground() {
+        BackgroundImage bgImage = new BackgroundImage(
+                tarot.getImageResource(),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
+                new BackgroundPosition(Side.LEFT, 0.5, true, Side.TOP, 0.5, true),
+                new BackgroundSize(1.0, 1.0, true, true, false, true));
+
+        paneBg.setBackground(new Background(bgImage));
+
+        BackgroundFill bgFill = new BackgroundFill(
+                new LinearGradient(0.5, 0.0, 0.5, 1.0, true, CycleMethod.NO_CYCLE, new Stop(0.0, Color.web("12121500")), new Stop(1.0, Color.web("121215FF"))),
+                new CornerRadii(16), Insets.EMPTY);
+
+        paneBgGradient.setBackground(new Background(bgFill));
     }
 
     public void attachEvents() {

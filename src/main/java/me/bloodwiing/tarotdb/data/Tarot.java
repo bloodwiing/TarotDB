@@ -78,12 +78,12 @@ public abstract class Tarot {
 
     public void buildInfo(InspectBuilder builder) {
         if (getNumerology() != null) {
-            var numerology = builder.addParagraph("Numerology");
+            var numerology = builder.addParagraph("🔢 Numerology");
             numerology.getListItems().add(createWrappingLabel(getNumerology()));
         }
 
         if (getElemental() != null) {
-            var elemental = builder.addParagraph("Elemental");
+            var elemental = builder.addParagraph("🌿 Elemental");
             elemental.getListItems().add(createWrappingLabel(getElemental()));
         }
     }
