@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.ListItemController">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.ListItemController">
    <children>
       <ImageView fx:id="imgCard" fitHeight="200.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
          <image>

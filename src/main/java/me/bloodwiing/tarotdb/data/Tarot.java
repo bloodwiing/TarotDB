@@ -11,6 +11,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import static me.bloodwiing.tarotdb.builders.InspectBuilder.createWrappingLabel;
+
 public abstract class Tarot {
     private final String name;
     private final String image;
@@ -73,12 +75,12 @@ public abstract class Tarot {
     public void buildInfo(InspectBuilder builder) {
         if (getNumerology() != null) {
             var numerology = builder.addParagraph("Numerology");
-            numerology.getListItems().add(new Label(getNumerology()));
+            numerology.getListItems().add(createWrappingLabel(getNumerology()));
         }
 
         if (getElemental() != null) {
             var elemental = builder.addParagraph("Elemental");
-            elemental.getListItems().add(new Label(getElemental()));
+            elemental.getListItems().add(createWrappingLabel(getElemental()));
         }
     }
 }

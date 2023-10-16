@@ -54,6 +54,8 @@ public class SettingsController implements Initializable {
 
             hboxDecks.getChildren().add(deckItem);
         }
+
+        refreshDeckItems();
     }
 
     private void refreshDeckItems() {

@@ -1,8 +1,6 @@
 package me.bloodwiing.tarotdb.controllers;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,13 +16,19 @@ import javafx.stage.Stage;
 import me.bloodwiing.tarotdb.Program;
 import me.bloodwiing.tarotdb.TarotDB;
 import me.bloodwiing.tarotdb.data.Tarot;
+import me.bloodwiing.tarotdb.listeners.SettingUpdateListener;
+import me.bloodwiing.tarotdb.managers.SettingsManager;
 import me.bloodwiing.tarotdb.managers.TarotManager;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-public class ListController implements Initializable {
+public class ListController implements Initializable, SettingUpdateListener {
+
+    private final List<ListItemController> listItems = new ArrayList<>();
 
     private Tarot selectedTarot;
 
@@ -45,6 +49,11 @@ public class ListController implements Initializable {
 
     @FXML
     private ChoiceBox<?> selSuit;
+
+    @Override
+    public void settingUpdate() {
+        imgPreview.setImage(selectedTarot.getImageResource());
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -71,6 +80,31 @@ public class ListController implements Initializable {
             });
 
             flowCardList.getChildren().add(listItem);
+
+            listItems.add(controller);
+        }
+
+        selectedTarot = listItems.get(0).getData();
+        imgPreview.setImage(selectedTarot.getImageResource());
+    }
+
+    public void attachEvents() {
+        SettingsManager.getInstance().addSettingUpdateListener(this);
+
+        for (ListItemController listItem : listItems) {
+            listItem.attachEvents();
+        }
+
+        imgPreview.getScene().getWindow().setOnCloseRequest(windowEvent -> {
+            removeEvents();
+        });
+    }
+
+    public void removeEvents() {
+        SettingsManager.getInstance().removeSettingUpdateListener(this);
+
+        for (ListItemController listItem : listItems) {
+            listItem.removeEvents();
         }
     }
 
@@ -96,12 +130,16 @@ public class ListController implements Initializable {
                 throw new RuntimeException(e);
             }
 
+            InspectController controller = inspectLoader.getController();
+
             inspect.setUserData(tarot);
 
             Stage stage = new Stage();
             stage.setTitle("Tarot DB -- " + tarot.getName());
             stage.setScene(new Scene(inspect));
             stage.show();
+
+            controller.attachEvents();
         }
 
         event.consume();

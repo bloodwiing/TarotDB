@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" spacing="16.0" stylesheets="@styling.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.SettingsController">
+<VBox alignment="TOP_CENTER" spacing="16.0" stylesheets="@styling.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.SettingsController">
    <padding>
       <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
    </padding>

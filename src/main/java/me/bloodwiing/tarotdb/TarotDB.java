@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import me.bloodwiing.tarotdb.controllers.ListController;
 
 import java.io.IOException;
 
@@ -15,5 +16,7 @@ public class TarotDB extends Application {
         stage.setTitle("Tarot DB");
         stage.setScene(scene);
         stage.show();
+        ListController controller = fxmlLoader.getController();
+        controller.attachEvents();
     }
 }

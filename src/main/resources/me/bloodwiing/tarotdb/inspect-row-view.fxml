@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox spacing="4.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.InspectRowController">
+<VBox spacing="4.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.InspectRowController">
    <children>
       <Label fx:id="labelName" maxWidth="1.7976931348623157E308" minWidth="-Infinity" styleClass="accent" text="Fortune telling" textFill="#5e5e5e">
          <font>
