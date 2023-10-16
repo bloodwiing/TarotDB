@@ -1,6 +1,7 @@
 package me.bloodwiing.tarotdb.controllers;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
+import me.bloodwiing.tarotdb.Program;
 import me.bloodwiing.tarotdb.TarotDB;
 import me.bloodwiing.tarotdb.data.Tarot;
 import me.bloodwiing.tarotdb.managers.TarotManager;
@@ -97,10 +99,27 @@ public class ListController implements Initializable {
             inspect.setUserData(tarot);
 
             Stage stage = new Stage();
+            stage.setTitle("Tarot DB -- " + tarot.getName());
             stage.setScene(new Scene(inspect));
             stage.show();
         }
 
         event.consume();
+    }
+
+    @FXML
+    public void onOpenSettings(ActionEvent actionEvent) {
+        FXMLLoader settingsLoader = new FXMLLoader(Program.class.getResource("settings-view.fxml"));
+        Parent settings;
+        try {
+            settings = settingsLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Stage stage = new Stage();
+        stage.setTitle("Tarot DB Settings");
+        stage.setScene(new Scene(settings));
+        stage.show();
     }
 }

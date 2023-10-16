@@ -8,5 +8,6 @@ module me.bloodwiing.tarotdb {
     exports me.bloodwiing.tarotdb;
     exports me.bloodwiing.tarotdb.controllers;
     exports me.bloodwiing.tarotdb.data;
+    exports me.bloodwiing.tarotdb.builders;
     opens me.bloodwiing.tarotdb.controllers to javafx.fxml;
 }

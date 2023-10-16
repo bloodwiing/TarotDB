@@ -5,14 +5,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import me.bloodwiing.tarotdb.builders.InspectBuilder;
 import me.bloodwiing.tarotdb.data.Tarot;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static me.bloodwiing.tarotdb.builders.InspectBuilder.createWrappingLabel;
+
 public class InspectController implements Initializable {
 
     private Tarot tarot;
+
+    @FXML
+    private VBox vboxContent;
 
     @FXML
     private ImageView imgImage;
@@ -38,16 +44,18 @@ public class InspectController implements Initializable {
             labelName.setText(tarot.getName());
 
             for (String fortune : tarot.getFortuneTellings()) {
-                vboxFortunes.getChildren().add(new Label(fortune));
+                vboxFortunes.getChildren().add(createWrappingLabel(fortune));
             }
 
             for (String light : tarot.getLightMeanings()) {
-                vboxLight.getChildren().add(new Label(light));
+                vboxLight.getChildren().add(createWrappingLabel(light));
             }
 
             for (String shadow : tarot.getShadowMeanings()) {
-                vboxShadow.getChildren().add(new Label(shadow));
+                vboxShadow.getChildren().add(createWrappingLabel(shadow));
             }
+
+            tarot.buildInfo(new InspectBuilder(vboxContent));
         });
     }
 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="870.0" prefWidth="730.0" spacing="16.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.InspectController">
+<VBox alignment="TOP_CENTER" prefHeight="870.0" prefWidth="730.0" spacing="16.0" stylesheets="@styling.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.InspectController">
    <padding>
       <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
    </padding>
@@ -21,13 +21,13 @@
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Label>
-            <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="by BLOODWIING" HBox.hgrow="ALWAYS" />
-            <Label layoutX="119.0" layoutY="23.0" text="v1.0" />
+            <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" styleClass="accent" text="by BLOODWIING" HBox.hgrow="ALWAYS" />
+            <Label layoutX="119.0" layoutY="23.0" styleClass="faint" text="v1.0" />
          </children>
       </HBox>
-      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="list" VBox.vgrow="ALWAYS">
          <content>
-            <VBox alignment="TOP_CENTER">
+            <VBox fx:id="vboxContent" alignment="TOP_CENTER" spacing="16.0">
                <children>
                   <ImageView fx:id="imgImage" fitHeight="400.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -39,9 +39,9 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <VBox maxWidth="1.7976931348623157E308" minWidth="-Infinity" spacing="4.0">
+                  <VBox spacing="4.0">
                      <children>
-                        <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="Fortune telling" textFill="#5e5e5e">
+                        <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" styleClass="accent" text="Fortune telling">
                            <font>
                               <Font name="System Bold" size="11.0" />
                            </font>
@@ -49,18 +49,21 @@
                               <Insets top="16.0" />
                            </VBox.margin>
                         </Label>
-                        <VBox fx:id="vboxFortunes" />
+                        <VBox fx:id="vboxFortunes" spacing="8.0">
+                           <VBox.margin>
+                              <Insets top="8.0" />
+                           </VBox.margin></VBox>
                      </children>
                      <padding>
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                      </padding>
                   </VBox>
-                  <VBox layoutX="10.0" layoutY="445.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" spacing="4.0">
+                  <VBox layoutX="10.0" layoutY="445.0" spacing="4.0">
                      <padding>
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                      </padding>
                      <children>
-                        <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="Meanings" textFill="#5e5e5e">
+                        <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" styleClass="accent" text="Meanings">
                            <font>
                               <Font name="System Bold" size="11.0" />
                            </font>
@@ -70,12 +73,12 @@
                         </Label>
                         <HBox>
                            <children>
-                              <VBox maxWidth="1.7976931348623157E308" minWidth="-Infinity" spacing="4.0" HBox.hgrow="ALWAYS">
+                              <VBox spacing="4.0" HBox.hgrow="ALWAYS">
                                  <padding>
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                                  <children>
-                                    <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="Light" textFill="#5e5e5e">
+                                    <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" styleClass="dark" text="Light">
                                        <font>
                                           <Font name="System Bold" size="11.0" />
                                        </font>
@@ -83,15 +86,18 @@
                                           <Insets />
                                        </VBox.margin>
                                     </Label>
-                                    <VBox fx:id="vboxLight" />
+                                    <VBox fx:id="vboxLight" spacing="8.0">
+                                       <VBox.margin>
+                                          <Insets top="8.0" />
+                                       </VBox.margin></VBox>
                                  </children>
                               </VBox>
-                              <VBox layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" spacing="4.0" HBox.hgrow="ALWAYS">
+                              <VBox layoutX="10.0" layoutY="10.0" spacing="4.0" HBox.hgrow="ALWAYS">
                                  <padding>
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                                  <children>
-                                    <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="Shadow" textFill="#5e5e5e">
+                                    <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" styleClass="dark" text="Shadow">
                                        <font>
                                           <Font name="System Bold" size="11.0" />
                                        </font>
@@ -99,7 +105,10 @@
                                           <Insets />
                                        </VBox.margin>
                                     </Label>
-                                    <VBox fx:id="vboxShadow" />
+                                    <VBox fx:id="vboxShadow" spacing="8.0">
+                                       <VBox.margin>
+                                          <Insets top="8.0" />
+                                       </VBox.margin></VBox>
                                  </children>
                               </VBox>
                            </children>
@@ -108,7 +117,7 @@
                   </VBox>
                </children>
                <padding>
-                  <Insets top="8.0" />
+                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                </padding>
             </VBox>
          </content>

@@ -1,0 +1,47 @@
+.root {
+    -fx-background-color: #282a30;
+}
+
+.list {
+    -fx-background-color: #0000;
+    -fx-background-insets: 0;
+}
+
+.list .viewport {
+    -fx-background-color: #34373f;
+}
+
+Label,
+RadioButton {
+    -fx-text-fill: #ccc;
+}
+
+.accent {
+    -fx-text-fill: #9b3aea;
+}
+
+.dark {
+    -fx-text-fill: #888;
+}
+
+.faint {
+    -fx-text-fill: #556;
+}
+
+Separator {
+    -fx-opacity: 0.1;
+}
+
+Button {
+    -fx-background-color: #9b3aea;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+}
+
+Button.gray {
+    -fx-background-color: #555;
+}
+
+ChoiceBox {
+    -fx-background-insets: 0;
+}

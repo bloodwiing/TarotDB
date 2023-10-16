@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.ListItemController">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.ListItemController">
    <children>
       <ImageView fx:id="imgCard" fitHeight="200.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@rws/m13.jpg" />
          </image>
+         <VBox.margin>
+            <Insets left="8.0" right="8.0" />
+         </VBox.margin>
       </ImageView>
-      <Label fx:id="lblHead" text="XIII">
+      <Label fx:id="lblHead" styleClass="dark" text="XIII">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lblLabel" text="Death" />
+      <Label fx:id="lblLabel" text="Death">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
    </children>
 </VBox>

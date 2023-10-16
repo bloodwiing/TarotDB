@@ -1,0 +1,18 @@
+{
+  "decks": [{
+    "name": "Rider Waite Smith",
+    "artist": "Pamela Colman Smith",
+    "path": "rws/",
+    "format": "jpg"
+  },{
+    "name": "Golden Thread RWS",
+    "artist": "Labyrinthos Academy",
+    "path": "gtt/",
+    "format": "png"
+  },{
+    "name": "Seventh Sphere RWS",
+    "artist": "Labyrinthos Academy",
+    "path": "sst/",
+    "format": "png"
+  }]
+}

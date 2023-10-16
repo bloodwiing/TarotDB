@@ -1,6 +1,10 @@
 package me.bloodwiing.tarotdb.data;
 
+import javafx.scene.control.Label;
+import me.bloodwiing.tarotdb.builders.InspectBuilder;
 import me.bloodwiing.tarotdb.converters.RomanNumeralConverter;
+
+import static me.bloodwiing.tarotdb.builders.InspectBuilder.createWrappingLabel;
 
 public class MajorTarot extends Tarot {
 
@@ -60,5 +64,19 @@ public class MajorTarot extends Tarot {
     @Override
     public String getListLabel() {
         return getName();
+    }
+
+    @Override
+    public void buildInfo(InspectBuilder builder) {
+        super.buildInfo(builder);
+
+        var archetype = builder.addParagraph("Archetype");
+        archetype.getListItems().add(createWrappingLabel(getArchetype()));
+
+        var hebrew = builder.addParagraph("Hebrew Alphabet");
+        hebrew.getListItems().add(createWrappingLabel(getHebrew()));
+
+        var mythical = builder.addParagraph("Mythical/Spiritual");
+        mythical.getListItems().add(createWrappingLabel(getMythical()));
     }
 }

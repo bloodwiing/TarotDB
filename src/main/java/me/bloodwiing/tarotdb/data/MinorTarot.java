@@ -1,5 +1,11 @@
 package me.bloodwiing.tarotdb.data;
 
+import javafx.scene.control.Label;
+import me.bloodwiing.tarotdb.builders.InspectBuilder;
+import me.bloodwiing.tarotdb.controllers.InspectRowController;
+
+import static me.bloodwiing.tarotdb.builders.InspectBuilder.createWrappingLabel;
+
 public class MinorTarot extends Tarot {
     private final int number;
     private final Suit suit;
@@ -45,5 +51,18 @@ public class MinorTarot extends Tarot {
     @Override
     public String getListLabel() {
         return getName();
+    }
+
+    @Override
+    public void buildInfo(InspectBuilder builder) {
+        super.buildInfo(builder);
+
+        if (getAstrology() != null) {
+            var astrology = builder.addParagraph("Astrology");
+            astrology.getListItems().add(createWrappingLabel(getAstrology()));
+        }
+
+        var affirmation = builder.addParagraph("Affirmation");
+        affirmation.getListItems().add(createWrappingLabel(getAffirmation()));
     }
 }

@@ -1,7 +1,10 @@
 package me.bloodwiing.tarotdb.data;
 
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import me.bloodwiing.tarotdb.Program;
+import me.bloodwiing.tarotdb.builders.InspectBuilder;
+import me.bloodwiing.tarotdb.managers.SettingsManager;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,15 +36,7 @@ public abstract class Tarot {
     }
 
     public Image getImageResource() {
-        try (InputStream stream = Program.class.getResourceAsStream("rws/" + getImage())) {
-            if (stream == null)
-                return null;
-
-            return new Image(stream);
-
-        } catch (IOException e) {
-            return null;
-        }
+        return new Image(SettingsManager.getInstance().getActiveDeck().getCard(getImage()));
     }
 
     public List<String> getFortuneTellings() {
@@ -74,4 +69,16 @@ public abstract class Tarot {
 
     public abstract String getListHead();
     public abstract String getListLabel();
+
+    public void buildInfo(InspectBuilder builder) {
+        if (getNumerology() != null) {
+            var numerology = builder.addParagraph("Numerology");
+            numerology.getListItems().add(new Label(getNumerology()));
+        }
+
+        if (getElemental() != null) {
+            var elemental = builder.addParagraph("Elemental");
+            elemental.getListItems().add(new Label(getElemental()));
+        }
+    }
 }

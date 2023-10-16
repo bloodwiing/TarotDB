@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" onMouseClicked="#onImageClicked" spacing="8.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.SettingsDeckItemController">
+   <children>
+      <ImageView fx:id="imgImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@rws/m0.jpg" />
+         </image>
+      </ImageView>
+      <RadioButton fx:id="radioOption" mnemonicParsing="false" text="Unnamed" />
+      <Label fx:id="lblArtist" layoutX="10.0" layoutY="160.0" styleClass="dark" text="by Unknown Artist" wrapText="true" />
+   </children>
+</VBox>
