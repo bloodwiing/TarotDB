@@ -4,9 +4,14 @@ import javafx.scene.control.Label;
 import me.bloodwiing.tarotdb.builders.InspectBuilder;
 import me.bloodwiing.tarotdb.controllers.InspectRowController;
 
+import java.util.List;
+
 import static me.bloodwiing.tarotdb.builders.InspectBuilder.createWrappingLabel;
 
 public class MinorTarot extends Tarot {
+
+    public static final String[] courts = new String[] { "Page", "Knight", "Queen", "King" };
+
     private final int number;
     private final Suit suit;
 

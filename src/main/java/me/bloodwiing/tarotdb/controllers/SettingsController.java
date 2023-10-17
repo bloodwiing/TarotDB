@@ -9,8 +9,11 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import me.bloodwiing.tarotdb.Program;
+import me.bloodwiing.tarotdb.converters.DeterministicColor;
 import me.bloodwiing.tarotdb.data.Deck;
 import me.bloodwiing.tarotdb.managers.SettingsManager;
 
@@ -29,9 +32,16 @@ public class SettingsController implements Initializable {
     @FXML
     private HBox hboxDecks;
 
+    @FXML
+    private ColorPicker pickAccent;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         selectedDeck = SettingsManager.getInstance().getActiveDeck();
+
+        hboxDecks.sceneProperty().addListener((observableValue, scene, t1) -> {
+            observableValue.getValue().getRoot().setStyle("-accent: " + DeterministicColor.colorToHSB(SettingsManager.getInstance().getAccentColor()) + ";");
+        });
 
         for (Deck deck : SettingsManager.getInstance().getDecks()) {
             FXMLLoader deckItemLoader = new FXMLLoader(Program.class.getResource("settings-deck-item-view.fxml"));
@@ -58,6 +68,8 @@ public class SettingsController implements Initializable {
         }
 
         refreshDeckItems();
+
+        pickAccent.setValue(SettingsManager.getInstance().getAccentColor());
     }
 
     private void refreshDeckItems() {
@@ -72,6 +84,8 @@ public class SettingsController implements Initializable {
 
     public void onSave(ActionEvent actionEvent) {
         SettingsManager.getInstance().setActiveDeck(selectedDeck);
+        SettingsManager.getInstance().setAccentColor(pickAccent.getValue());
+        SettingsManager.getInstance().notifySettingUpdateListeners();
         onCancel(actionEvent);
     }
 }

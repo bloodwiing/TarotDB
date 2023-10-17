@@ -2,12 +2,9 @@
     src: url("axis.ttf");
 }
 
-* {
-    -accent: #7b4fcf;
-}
-
 .root {
     -fx-background-color: #000;
+    -accent: #7b4fcf;
 }
 
 .list {
@@ -24,9 +21,22 @@
     -fx-background-radius: 16px;
 }
 
+.border-radius-small {
+    -fx-background-radius: 8px;
+}
+
 Label,
 RadioButton {
     -fx-text-fill: #fff;
+}
+
+ChoiceBox {
+    -fx-background-color: #121215;
+}
+
+ColorPicker {
+    -fx-background-color: #29292F;
+    -fx-padding: 4px 14px;
 }
 
 .accent {
@@ -46,9 +56,10 @@ Separator {
 }
 
 Button {
-    -fx-background-color: #9b3aea;
+    -fx-background-color: -accent;
     -fx-background-insets: 0;
     -fx-text-fill: white;
+    -fx-padding: 4px 14px;
 }
 
 Button.gray {

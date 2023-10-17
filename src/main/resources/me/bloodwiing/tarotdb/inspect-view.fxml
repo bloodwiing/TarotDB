@@ -34,7 +34,7 @@
             <Label layoutX="119.0" layoutY="23.0" styleClass="faint" text="v1.0" />
          </children>
       </HBox>
-      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="list" VBox.vgrow="ALWAYS">
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="900.0" styleClass="list" VBox.vgrow="ALWAYS">
          <content>
             <AnchorPane>
                <children>

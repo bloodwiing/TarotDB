@@ -123,6 +123,10 @@ public final class TarotManager {
         getKeywords().addAll(tarot.getKeywords());
     }
 
+    public Collection<Suit> getSuits() {
+        return suits.values();
+    }
+
     public List<Tarot> getCards() {
         return cards;
     }

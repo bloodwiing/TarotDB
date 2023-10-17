@@ -58,6 +58,8 @@ public class InspectController implements Initializable, SettingUpdateListener {
     public void settingUpdate() {
         imgImage.setImage(tarot.getImageResource());
         remakeBackground();
+
+        imgImage.getScene().getRoot().setStyle("-accent: " + DeterministicColor.colorToHSB(SettingsManager.getInstance().getAccentColor()) + ";");
     }
 
     @Override

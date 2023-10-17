@@ -1,5 +1,6 @@
 package me.bloodwiing.tarotdb.managers;
 
+import javafx.scene.paint.Color;
 import me.bloodwiing.tarotdb.data.Deck;
 import me.bloodwiing.tarotdb.listeners.SettingUpdateListener;
 import org.json.JSONArray;
@@ -17,6 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class SettingsManager {
     private final List<Deck> decks = new ArrayList<>();
     private Deck activeDeck;
+    private Color accentColor = Color.web("7b4fcf");
 
     private final Collection<WeakReference<SettingUpdateListener>> settingUpdateListeners = ConcurrentHashMap.newKeySet();
 
@@ -67,7 +69,14 @@ public final class SettingsManager {
 
     public void setActiveDeck(Deck activeDeck) {
         this.activeDeck = activeDeck;
-        notifySettingUpdateListeners();
+    }
+
+    public Color getAccentColor() {
+        return accentColor;
+    }
+
+    public void setAccentColor(Color accentColor) {
+        this.accentColor = accentColor;
     }
 
     public void addSettingUpdateListener(SettingUpdateListener listener) {
