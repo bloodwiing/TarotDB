@@ -5,9 +5,11 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -36,7 +38,10 @@
          <content>
             <AnchorPane>
                <children>
-                  <Pane fx:id="paneBg" depthTest="DISABLE" mouseTransparent="true" opacity="0.1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Pane fx:id="paneBg" blendMode="ADD" depthTest="DISABLE" mouseTransparent="true" opacity="0.1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <effect>
+                        <GaussianBlur />
+                     </effect></Pane>
                   <Pane fx:id="paneBgGradient" depthTest="DISABLE" mouseTransparent="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   <VBox fx:id="vboxContent" alignment="TOP_CENTER" spacing="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -50,9 +55,10 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
+                        <FlowPane fx:id="hboxKeywords" alignment="CENTER" hgap="8.0" vgap="8.0" />
                         <VBox spacing="4.0">
                            <children>
-                              <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="🔮 Fortune telling">
+                              <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="✿ Fortune telling">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -122,7 +128,7 @@
                                           <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                        </padding>
                                        <children>
-                                          <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="🌙 Shadow">
+                                          <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="☽ Shadow">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>

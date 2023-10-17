@@ -20,7 +20,7 @@
             <String fx:value="axis" />
          </styleClass>
       </Label>
-      <VBox fx:id="vboxList">
+      <VBox fx:id="vboxList" spacing="8.0" >
          <VBox.margin>
             <Insets top="8.0" />
          </VBox.margin></VBox>

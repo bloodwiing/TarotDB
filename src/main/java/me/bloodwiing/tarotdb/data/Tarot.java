@@ -9,7 +9,9 @@ import me.bloodwiing.tarotdb.managers.SettingsManager;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static me.bloodwiing.tarotdb.builders.InspectBuilder.createWrappingLabel;
 
@@ -17,12 +19,16 @@ public abstract class Tarot {
     private final String name;
     private final String image;
 
+    private final Set<String> keywords = new HashSet<>();
+
     private final List<String> fortuneTellings = new ArrayList<>();
     private final List<String> lightMeanings = new ArrayList<>();
     private final List<String> shadowMeanings = new ArrayList<>();
 
     private String numerology;
     private String elemental;
+
+    private final List<String> questions = new ArrayList<>();
 
     public Tarot(String name, String image) {
         this.name = name;
@@ -39,6 +45,10 @@ public abstract class Tarot {
 
     public Image getImageResource() {
         return new Image(SettingsManager.getInstance().getActiveDeck().getCard(getImage()));
+    }
+
+    public Set<String> getKeywords() {
+        return keywords;
     }
 
     public List<String> getFortuneTellings() {
@@ -69,6 +79,10 @@ public abstract class Tarot {
         this.elemental = elemental;
     }
 
+    public List<String> getQuestions() {
+        return questions;
+    }
+
     public abstract String getListHead();
     public abstract String getListLabel();
 
@@ -77,13 +91,18 @@ public abstract class Tarot {
     }
 
     public void buildInfo(InspectBuilder builder) {
+        var questionsToAsk = builder.addParagraph("❓ Questions to Ask");
+        for (String q : questions) {
+            questionsToAsk.getListItems().add(createWrappingLabel(q));
+        }
+
         if (getNumerology() != null) {
-            var numerology = builder.addParagraph("🔢 Numerology");
+            var numerology = builder.addParagraph("∑ Numerology");
             numerology.getListItems().add(createWrappingLabel(getNumerology()));
         }
 
         if (getElemental() != null) {
-            var elemental = builder.addParagraph("🌿 Elemental");
+            var elemental = builder.addParagraph("❄ Elemental");
             elemental.getListItems().add(createWrappingLabel(getElemental()));
         }
     }

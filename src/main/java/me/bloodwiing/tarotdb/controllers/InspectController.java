@@ -13,6 +13,7 @@ import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
 import me.bloodwiing.tarotdb.builders.InspectBuilder;
+import me.bloodwiing.tarotdb.converters.DeterministicColor;
 import me.bloodwiing.tarotdb.data.Tarot;
 import me.bloodwiing.tarotdb.listeners.SettingUpdateListener;
 import me.bloodwiing.tarotdb.managers.SettingsManager;
@@ -50,6 +51,9 @@ public class InspectController implements Initializable, SettingUpdateListener {
     @FXML
     private Pane paneBgGradient;
 
+    @FXML
+    private FlowPane hboxKeywords;
+
     @Override
     public void settingUpdate() {
         imgImage.setImage(tarot.getImageResource());
@@ -63,6 +67,13 @@ public class InspectController implements Initializable, SettingUpdateListener {
 
             imgImage.setImage(tarot.getImageResource());
             labelName.setText(tarot.getDisplayName());
+
+            for (String keyword : tarot.getKeywords()) {
+                Label label = new Label(keyword);
+                label.getStyleClass().addAll("tag", "axis");
+                label.setStyle("-color: hsb(" + DeterministicColor.hueFromObject(keyword) + ", 80%, 100%);");
+                hboxKeywords.getChildren().add(label);
+            }
 
             for (String fortune : tarot.getFortuneTellings()) {
                 vboxFortunes.getChildren().add(createWrappingLabel(fortune));

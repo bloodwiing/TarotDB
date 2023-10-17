@@ -62,3 +62,13 @@ ChoiceBox {
 .axis {
     -fx-font-family: "AXIS Extra Bold";
 }
+
+Label.tag {
+    -fx-background-color: ladder(hsb(0, 0%, 70%), -color, #0000);
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+    -fx-border-color: -color;
+    -fx-text-fill: -color;
+    -fx-padding: 6px 14px;
+}

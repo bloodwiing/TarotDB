@@ -72,7 +72,7 @@ public class MajorTarot extends Tarot {
         var hebrew = builder.addParagraph("✡ Hebrew Alphabet");
         hebrew.getListItems().add(createWrappingLabel(getHebrew()));
 
-        var mythical = builder.addParagraph("🙏 Mythical/Spiritual");
+        var mythical = builder.addParagraph("❂ Mythical/Spiritual");
         mythical.getListItems().add(createWrappingLabel(getMythical()));
     }
 }

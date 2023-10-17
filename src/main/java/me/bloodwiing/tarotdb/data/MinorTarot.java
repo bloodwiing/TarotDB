@@ -58,11 +58,11 @@ public class MinorTarot extends Tarot {
         super.buildInfo(builder);
 
         if (getAstrology() != null) {
-            var astrology = builder.addParagraph("🔭 Astrology");
+            var astrology = builder.addParagraph("☄ Astrology");
             astrology.getListItems().add(createWrappingLabel(getAstrology()));
         }
 
-        var affirmation = builder.addParagraph("💡 Affirmation");
+        var affirmation = builder.addParagraph("⚖ Affirmation");
         affirmation.getListItems().add(createWrappingLabel(getAffirmation()));
     }
 }

@@ -12,6 +12,8 @@ public final class TarotManager {
     private final Map<String, Suit> suits = new HashMap<>();
     private final List<Tarot> cards = new ArrayList<>();
 
+    private final Set<String> keywords = new HashSet<>();
+
     private static TarotManager instance;
 
     private TarotManager() {
@@ -109,9 +111,23 @@ public final class TarotManager {
         for (Object o : data.getJSONObject("meanings").getJSONArray("shadow")) {
             tarot.getShadowMeanings().add((String)o);
         }
+
+        for (Object o : data.getJSONArray("keywords")) {
+            tarot.getKeywords().add((String)o);
+        }
+
+        for (Object o : data.getJSONArray("Questions to Ask")) {
+            tarot.getQuestions().add((String)o);
+        }
+
+        getKeywords().addAll(tarot.getKeywords());
     }
 
     public List<Tarot> getCards() {
         return cards;
+    }
+
+    public Set<String> getKeywords() {
+        return keywords;
     }
 }
