@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="203.0" prefWidth="730.0" spacing="16.0" style="-xd: 10;" styleClass="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.bloodwiing.tarotdb.controllers.ListController">
+   <padding>
+      <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+   </padding>
+   <stylesheets>
+      <URL value="@styling.css" />
+      <URL value="@scroll.css" />
+   </stylesheets>
+   <children>
+      <HBox alignment="BASELINE_LEFT" spacing="8.0">
+         <children>
+            <Label style="-fx-font-family: &quot;AXIS Extra Bold&quot;;" styleClass="axis" text="Tarot Table">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" styleClass="accent" text="by BLOODWIING" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblVersion" layoutX="119.0" layoutY="23.0" styleClass="faint" text="v1.0" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

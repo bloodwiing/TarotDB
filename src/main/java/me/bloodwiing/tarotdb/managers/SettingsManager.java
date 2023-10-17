@@ -20,6 +20,8 @@ public final class SettingsManager {
     private Deck activeDeck;
     private Color accentColor = Color.web("7b4fcf");
 
+    private String version = "v1.3";
+
     private final Collection<WeakReference<SettingUpdateListener>> settingUpdateListeners = ConcurrentHashMap.newKeySet();
 
     private static SettingsManager instance;
@@ -77,6 +79,10 @@ public final class SettingsManager {
 
     public void setAccentColor(Color accentColor) {
         this.accentColor = accentColor;
+    }
+
+    public String getVersion() {
+        return version;
     }
 
     public void addSettingUpdateListener(SettingUpdateListener listener) {

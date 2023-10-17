@@ -61,6 +61,9 @@ public class ListController implements Initializable, SettingUpdateListener {
     @FXML
     private Label lblNumber;
 
+    @FXML
+    private Label lblVersion;
+
     @Override
     public void settingUpdate() {
         imgPreview.setImage(selectedTarot.getImageResource());
@@ -70,7 +73,7 @@ public class ListController implements Initializable, SettingUpdateListener {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        URL listItemURL = TarotDB.class.getResource("list-item-view.fxml");
+        lblVersion.setText(SettingsManager.getInstance().getVersion());
 
         rebuildCardGrid();
 

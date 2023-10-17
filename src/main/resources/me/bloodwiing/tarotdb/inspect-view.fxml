@@ -31,7 +31,7 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <Label layoutX="119.0" layoutY="23.0" styleClass="faint" text="v1.0" />
+            <Label fx:id="lblVersion" layoutX="119.0" layoutY="23.0" styleClass="faint" text="v1.0" />
          </children>
       </HBox>
       <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="900.0" styleClass="list" VBox.vgrow="ALWAYS">

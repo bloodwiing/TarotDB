@@ -54,6 +54,9 @@ public class InspectController implements Initializable, SettingUpdateListener {
     @FXML
     private FlowPane hboxKeywords;
 
+    @FXML
+    private Label lblVersion;
+
     @Override
     public void settingUpdate() {
         imgImage.setImage(tarot.getImageResource());
@@ -64,6 +67,8 @@ public class InspectController implements Initializable, SettingUpdateListener {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        lblVersion.setText(SettingsManager.getInstance().getVersion());
+
         imgImage.sceneProperty().addListener((observableValue, scene, t1) -> {
             tarot = (Tarot) observableValue.getValue().getRoot().getUserData();
 
