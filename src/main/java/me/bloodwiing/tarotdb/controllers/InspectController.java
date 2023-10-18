@@ -1,9 +1,11 @@
 package me.bloodwiing.tarotdb.controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Side;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,12 +14,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
+import javafx.util.Pair;
+import me.bloodwiing.tarotdb.Program;
 import me.bloodwiing.tarotdb.builders.InspectBuilder;
 import me.bloodwiing.tarotdb.converters.DeterministicColor;
 import me.bloodwiing.tarotdb.data.Tarot;
 import me.bloodwiing.tarotdb.listeners.SettingUpdateListener;
 import me.bloodwiing.tarotdb.managers.SettingsManager;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -70,6 +75,8 @@ public class InspectController implements Initializable, SettingUpdateListener {
         lblVersion.setText(SettingsManager.getInstance().getVersion());
 
         imgImage.sceneProperty().addListener((observableValue, scene, t1) -> {
+            imgImage.getScene().getRoot().setStyle("-accent: " + DeterministicColor.colorToHSB(SettingsManager.getInstance().getAccentColor()) + ";");
+
             tarot = (Tarot) observableValue.getValue().getRoot().getUserData();
 
             imgImage.setImage(tarot.getImageResource());
@@ -122,5 +129,17 @@ public class InspectController implements Initializable, SettingUpdateListener {
         imgImage.getScene().getWindow().setOnCloseRequest(windowEvent -> {
             SettingsManager.getInstance().removeSettingUpdateListener(this);
         });
+    }
+
+    public static Pair<Parent, InspectController> createElement() {
+        FXMLLoader loader = new FXMLLoader(Program.class.getResource("inspect-view.fxml"));
+        Parent element;
+        try {
+            element = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return new Pair<>(element, loader.getController());
     }
 }

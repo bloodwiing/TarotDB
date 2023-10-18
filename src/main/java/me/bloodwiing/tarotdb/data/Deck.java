@@ -12,4 +12,8 @@ public record Deck(String name, String artist, String path, String format) {
     public InputStream getDefaultCard() {
         return getCard("m0");
     }
+
+    public InputStream getBackCard() {
+        return getCard("b0");
+    }
 }

@@ -20,7 +20,7 @@ public final class SettingsManager {
     private Deck activeDeck;
     private Color accentColor = Color.web("7b4fcf");
 
-    private String version = "v1.3";
+    private final String version = "v1.4";
 
     private final Collection<WeakReference<SettingUpdateListener>> settingUpdateListeners = ConcurrentHashMap.newKeySet();
 

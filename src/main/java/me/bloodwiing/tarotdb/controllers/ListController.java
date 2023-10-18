@@ -230,30 +230,21 @@ public class ListController implements Initializable, SettingUpdateListener {
             imgPreview.setImage(tarot.getImageResource());
 
         } else if (event.getClickCount() == 2) {
-            FXMLLoader inspectLoader = new FXMLLoader(TarotDB.class.getResource("inspect-view.fxml"));
-            Parent inspect;
-            try {
-                inspect = inspectLoader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            var pair = InspectController.createElement();
 
-            InspectController controller = inspectLoader.getController();
-
-            inspect.setUserData(tarot);
+            pair.getKey().setUserData(tarot);
 
             Stage stage = new Stage();
             stage.setTitle("Tarot DB -- " + tarot.getName());
-            stage.setScene(new Scene(inspect));
+            stage.setScene(new Scene(pair.getKey()));
             stage.show();
 
-            controller.attachEvents();
+            pair.getValue().attachEvents();
         }
 
         event.consume();
     }
 
-    @Deprecated
     public void onOpenSettings(ActionEvent actionEvent) {
         FXMLLoader settingsLoader = new FXMLLoader(Program.class.getResource("settings-view.fxml"));
         Parent settings;
@@ -267,5 +258,16 @@ public class ListController implements Initializable, SettingUpdateListener {
         stage.setTitle("Tarot DB Settings");
         stage.setScene(new Scene(settings));
         stage.show();
+    }
+
+    public void onOpenTable(ActionEvent actionEvent) {
+        var pair = TableController.createElement();
+
+        Stage stage = new Stage();
+        stage.setTitle("Tarot Table");
+        stage.setScene(new Scene(pair.getKey()));
+        stage.show();
+
+        pair.getValue().attachEvents();
     }
 }

@@ -32,12 +32,18 @@
                <Font name="System Bold" size="12.0" />
             </font></Label>
          <Label fx:id="lblVersion" layoutX="119.0" layoutY="23.0" styleClass="faint" text="v1.0" />
-         <Button mnemonicParsing="false" onAction="#onOpenSettings" text="Settings">
+         <Button mnemonicParsing="false" onAction="#onOpenTable" text="Table">
+            <styleClass>
+               <String fx:value="axis" />
+               <String fx:value="border-radius-small" />
+            </styleClass></Button>
+         <Button layoutX="610.0" layoutY="17.0" mnemonicParsing="false" onAction="#onOpenSettings" text="Settings">
             <styleClass>
                <String fx:value="axis" />
                <String fx:value="gray" />
                <String fx:value="border-radius-small" />
-            </styleClass></Button>
+            </styleClass>
+         </Button>
       </children>
    </HBox>
    <HBox alignment="CENTER" spacing="16.0" VBox.vgrow="ALWAYS">
