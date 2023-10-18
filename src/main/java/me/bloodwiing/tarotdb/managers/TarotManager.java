@@ -14,16 +14,13 @@ public final class TarotManager {
 
     private final Set<String> keywords = new HashSet<>();
 
-    private static TarotManager instance;
+    private static final TarotManager instance = new TarotManager();
 
     private TarotManager() {
 
     }
 
     public static TarotManager getInstance() {
-        if (instance == null) {
-            instance = new TarotManager();
-        }
         return instance;
     }
 

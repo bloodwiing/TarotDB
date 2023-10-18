@@ -24,16 +24,13 @@ public final class SettingsManager {
 
     private final Collection<WeakReference<SettingUpdateListener>> settingUpdateListeners = ConcurrentHashMap.newKeySet();
 
-    private static SettingsManager instance;
+    private static final SettingsManager instance = new SettingsManager();
 
     private SettingsManager() {
 
     }
 
     public static SettingsManager getInstance() {
-        if (instance == null) {
-            instance = new SettingsManager();
-        }
         return instance;
     }
 
